@@ -1,0 +1,52 @@
+ {% block header %} 
+  <header id="header">
+
+        <div class="header_section">
+            <div class="header_item">
+                <div class="logo"></div>
+            </div>
+
+            <div class="header_item search">
+                <form action="/explore/{{1}}", method="GET">
+                    <input name='req', type="text" placeholder="explore..." required>
+                    <input type="submit" value='find!'>
+                </form>
+            </div>           
+        </div>
+
+    
+
+        <div class="header_section">
+
+             <div class="header_item">
+                <a href="/{{session['user']}}/profile" class="profile">Profile</a>
+            </div>
+
+            <div class="header_item">
+                <a href="/explore/1?req=" class="logout">Explore</a>
+            </div>
+
+            <div class="header_item">
+                <a href="" class="settings">Settings</a>
+            </div>
+            <div class="header_item">
+                <a href="/logout" class="logout">Logout</a>
+            </div>
+        </div>
+
+    </header>
+
+    <section id="user_activity">
+
+        <div class="activity_section">
+            <div class="subscribers_stat">10</div>
+            <div class="subscribtions_stat">5</div>        
+        </div>
+
+         <div class="activity_section">
+            <div class="liks_stat"></div>
+            <div class="posts_stat">cnt_posts:{{cnt_p}}</div>
+        </div>
+
+    </section>
+ {% endblock %}   

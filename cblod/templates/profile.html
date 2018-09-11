@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block body %}
+    {% include 'header.html' %}
+    {% block header %}
+    {% endblock %}
+    <section id="user_profile">
+        <article class="image_wrap">
+            <img src="{{user_info[0][4]}}" alt="{{user_info[0][0] + '_avatar'}}" class="avatar">
+        </article>
+        <article class="user_descr">
+            <table>
+                <tr>
+                    <td class="param_descr">login: </td>
+                    <td class="param_info">{{user_info[0][0]}}</td>
+                </tr>
+                <tr>
+                    <td class="param_descr">role:</td>
+                    <td class="param_info">{{user_info[0][1]}}</td>
+                </tr>
+                <tr>
+                    <td class="param_descr">mail:</td>
+                    <td class="param_info">{{user_info[0][2]}}</td>
+                </tr>
+                <tr>
+                    <td class="param_descr">registration datetime:</td>
+                    <td class="param_info">{{user_info[0][3]}}</td>
+                </tr>
+                <tr>
+                    <td class="param_descr">About me:</td>
+                    <td class="param_info">Lorem ipsum dolor sit amet, consectetur adipisicing elit</td>
+                </tr>
+            </table>
+            
+        </article>
+    </section> 
+{% endblock %} 
+

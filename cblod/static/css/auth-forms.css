@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa:300,400,700&subset=cyrillic');
+
+body {
+    margin: 0;
+    padding: 0;  
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: auto;
+    background: #f7f7f7; 
+    font-size: 15pt;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Comfortaa', cursive;
+}
+
+
+#auth-forms { 
+    background: #fff; 
+    padding: 10px;
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    top: -30px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    -webkit-box-shadow: 0px 2px 36px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 2px 36px -2px rgba(0,0,0,0.75);
+    box-shadow: 0px 2px 36px -2px rgba(0,0,0,0.75);
+    border-radius: 4px;
+}
+
+.return-to-enter {
+    display: inline-block;  
+    position: absolute; 
+    text-decoration: none;
+    height: 95%;
+    width: 10%; 
+    text-align: center;
+    white-space: nowrap;
+    line-height: 1000%;
+    font-weight: 300;
+    font-size: 30pt;
+    font-family: Verdana, Geneva, sans-serif;
+    color: #f4f4f4;    
+}
+
+.return-to-enter:hover {
+    border-radius:5px 0 0 5px;
+    background: lightgray;
+}
+
+.auth_header {
+    height: 50%;
+}
+
+.auth_header h3 {
+    font-size: 18pt;
+    background: #fcfcfc;
+}
+
+.error {
+    color: red;
+}
+
+.wrapper-auth {
+    font-family: 'Comfortaa', cursive;
+    text-align: center; 
+}
+
+.wrapper-auth input[type="text"], 
+              input[type="password"],
+              input[type="email"] {
+    height: 50px;
+    width: 250px;
+    border: 0;
+    border-bottom: 1px solid gray;
+    outline: none;
+}
+
+.wrapper-auth input[type="text"]:focus, 
+              input[type="password"]:focus, 
+              input[type="email"]:focus {
+   background: #f9f9f9;
+   border-bottom: 2px solid #43eaac;
+   -webkit-transition: border-bottom 0.5s;
+   -moz-transition: border-bottom 0.5s;
+   -o-transition: border-bottom 0.5s;
+   transition: border-bottom 0.5s;
+}
+
+
+.wrapper-auth #pwd {
+    margin-bottom: 20px;
+}
+
+input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: ligthgray;
+  font-size: 12pt;
+}
+input::-moz-placeholder { /* Firefox 19+ */
+  color: ligthgray;
+  font-size: 12pt;
+}
+input:-ms-input-placeholder { /* IE 10+ */
+  color: ligthgray;
+  font-size: 12pt;
+}
+input:-moz-placeholder { /* Firefox 18- */
+  color: ligthgray;
+  font-size: 12pt;
+}
+
+.wrapper-auth input[type="submit"] {
+    height: 50px;
+    width: 250px;
+    background: #43eaac;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 12pt;
+    border-radius: 3px;
+    border-bottom: 2px solid#38d196 ;
+}
+
+.wrapper-auth input[type="submit"]:not(.regist):hover {
+    background: #3bd69b;
+    border-bottom: 2px solid #2caa7a;
+    color: white;
+    cursor: pointer;
+}
+
+.wrapper-auth input[type="submit"]:active {
+    border-bottom: 0px;
+    outline: none;
+    background: #3bd69b;
+}
+
+.wrapper-auth  input.regist {
+    margin-top: 10px;
+    border:2px solid #43eaac ;
+    color:#43eaac;
+    background: none;
+}
+
+.wrapper-auth  input.regist:hover {
+    border:2px solid #2caa7a ;
+    color:#2caa7a;
+}
+
+
+@media screen and (max-width: 768px) {
+    #auth-forms {
+        width: 300px;   
+        top: 0px;
+    }
+}

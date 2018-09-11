@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% block body %}
+    {% include 'header.html' %}
+    {% block header %}
+    {% endblock %} 
+    <section id="content">
+                
+        <article class="content_section navigation_list">
+                <ul>
+                <li class='nav_items'><a href="">#item1</a></li>
+                <li class='nav_items'><a href="">#item2</a></li>
+                <li class='nav_items'><a href="">#item3</a></li>
+                <li class='nav_items'><a href="">#item4</a></li>
+                <li class='nav_items'><a href="">#item5</a></li>
+            </ul>
+        </article>
+        
+
+        <article class="content_section post_list">
+          {% if session['current_route'] == 'user_page' %}
+            <div class="post_container create_body">
+                <div class="content_header">
+                    <label for=""><h4><p>Create a post:</p></h4></label>
+                </div>
+                <form action="/create_post" method="POST">
+                    <input type="text" name='tags' placeholder="Set tags list using comas ...">
+                    <textarea id="code_text" name='post_create' required></textarea>
+                    <br>
+                    <label for="is_private_checkbox">Private</label>
+                    <input type="checkbox" name='is_private' id='is_private_checkbox'>
+                    <br>
+                    <input name='post_create' type="submit" value='create!'>
+                </form>
+            </div>    
+            {% endif %}
+            {% if posts %} 
+            {% if pages > 0 %}
+            <ul class="post_container pagination">
+                {% if session['current_page'] > 1 %}
+                 {% set g = (session['current_page'] - 1)|string + pagination_urls%}
+                    <li><a href="{{ g }}" ><</a></li>
+                 {% else  %}
+                   <li><a href="#" class="unclicable"><</a></li>
+                {% endif %}
+                
+                {% for i in pagination_list %}
+
+                    <li ><a {%if session['current_page']==i%} class="page_changed" {% endif %} href="{{ i ~  pagination_urls}}">{{i}}</a></li>
+                    
+                {% endfor %}
+
+                {% if session['current_page'] < pages + 1 %}
+                {% set var = (session['current_page'] + 1)|string + pagination_urls%}
+                    <li><a href={{var}} >></a></li>
+                {% else  %}
+                   <li><a href="#" class="unclicable">></a></li>
+                {% endif %}
+            </ul>
+
+            {% endif %}
+                
+            {% for post in posts %}
+
+            <div id="code" class="post_container">
+                <h5>tags:{{post[1]}}</h5>
+                <pre><code class="js html python">{{ post[0] }}</code></pre>
+               <!--  <div class="text">post content:<textarea id="code_out" readonly>{{ post[0] | safe  }}</textarea></div> -->
+                <ul class="post_info">
+                    <li class="datetime">{{ post[4] }}</li>
+                    <li class="user_name">| <a href="{{'/' + post[3] + '/' + 'profile' }}">{{ post[3] }}</a></li>
+                    {% if session['current_route']=='user_page' %}
+                    <li class="delete_post">|<a href="/delete_post/{{post[2]}}">delete</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+
+            {% endfor %}
+
+              {% if pages > 0 %}
+            <ul class="post_container pagination">
+                {% if session['current_page'] > 1 %}
+                 {% set g = (session['current_page'] - 1)|string + pagination_urls%}
+                    <li><a href="{{ g }}" ><</a></li>
+                {% endif %}
+
+                {% for i in pagination_list %}
+                    <li><a href="{{ i ~  pagination_urls}}">{{i}}</a></li>
+                {% endfor %}
+
+                {% if session['current_page'] < pages + 1 %}
+                {% set var = (session['current_page'] + 1)|string + pagination_urls%}
+                    <li><a href={{var}} >></a></li>
+                {% endif %}
+            </ul>
+            {% endif %}
+            {% endif %}            
+        </article>
+
+    </section>
+
+    <footer>
+        this is footer
+    </footer>
+
+{% endblock %}

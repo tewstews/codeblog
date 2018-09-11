@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block body %}    
+    <div id="auth-forms">
+        <a href="/" class="return-to-enter"> < </a>
+        <div class="wrapper-auth">
+            {% if fail %}        
+                    <h4 class="error">Email or  user already exists!</h4>
+            {% else %}       
+                    <h4>Please fill the form:</h4>
+            {% endif %} 
+            <div class="wrap-reg-form">
+                <form action="/regist/" class="auth" method="POST">
+                    <input type="text" id="login" name="login" placeholder="Login:" required>
+        
+                    <br>
+                    <input type="email" id="mail" name="mail" placeholder="Your email:" required>
+        
+                    <br>
+                    <input type="password" id="pwd" name="pwd" placeholder="Password:"  required>
+                    
+                    <br>
+                    <input type="submit" value="Register!">
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
